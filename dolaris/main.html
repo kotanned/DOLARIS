@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>DOLORIS</title>
+    <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var icons = {
+                            'dolar': document.getElementById('dolarIcon'),
+                            'euro': document.getElementById('euroIcon'),
+                            'sterling': document.getElementById('sterlingIcon'),
+                            'yen': document.getElementById('yenIcon')
+                        };
+                        var lightboxes = {
+                            'dolar': document.getElementById('lightbox-dollar'),
+                            'euro': document.getElementById('lightbox-euro'),
+                            'sterling': document.getElementById('lightbox-sterling'),
+                            'yen': document.getElementById('lightbox-yen')
+                        };
+                        var closes = {
+                            'dolar': document.getElementById('close-dollar'),
+                            'euro': document.getElementById('close-euro'),
+                            'sterling': document.getElementById('close-sterling'),
+                            'yen': document.getElementById('close-yen')
+                        };
+
+                        Object.keys(icons).forEach(function(key) {
+                            icons[key].addEventListener('click', function() {
+                                lightboxes[key].style.display = 'flex';
+                            });
+
+                            closes[key].addEventListener('click', function() {
+                                lightboxes[key].style.display = 'none';
+                            });
+                        });
+                    });
+                    document.addEventListener('DOMContentLoaded', function() {
+                        openDuyuru();
+                    });
+
+                    function openDuyuru() {
+                        var duyuru = document.querySelector('.duyuru');
+                        duyuru.style.visibility = 'visible';
+                        duyuru.style.opacity = 1;
+                        duyuru.style.animation = 'duyurukapat 5s forwards';
+                    }
+
+                    function closeDuyuru() {
+                        var duyuru = document.querySelector('.duyuru');
+                        duyuru.style.animation = 'none';
+                        duyuru.style.visibility = 'hidden';
+                        duyuru.style.opacity = 0;
+                    }
+                    function openFedLightbox() {
+                document.getElementById('fedLightbox').style.display = 'flex';
+            }
+
+            function closeFedLightbox() {
+                document.getElementById('fedLightbox').style.display = 'none';
+            }
+
+            function changeFedImage(src) {
+                document.getElementById('fedLightbox-img').src = src;
+            }
+    </script>
+</head>
+<body class="body">
+    <section class="duyuru">
+        <div>
+            <a href="javascript:void(0)" onclick="closeDuyuru()">X</a>
+            <img src="döviz3.png" class="resim">
+            <h2>Dalgalanan Ekonomi</h2>
+            <p>Yüksek enflasyon oranlara dikkat edin.</p>
+        </div>
+    </section>
+    <div class="main">
+        <header class="head">
+            <div class="headleft">
+                <div class="navele"><a href="main.html"class="logo">DOLORIS</a></div>
+                <div class="navele"><a href="main.html">Anasayfa</a></div>
+                <div class="navele"><a href="mevduat.html">Kur Korumalı Mevduat</a></div>
+             
+                <div class="navele"><a></a></div>
+            </div>
+            <div class="headright">
+                <div class="navele"><a href="form.html">İletişim</a></div>
+                <div class="navele"><a>Kayıt Ol</a></div>
+                <div class="navele"><a class="login">Giriş Yap</a></div>
+            </div>  
+        </header>
+        <div class="middle">
+            <div class="middlein">
+                <div>
+                    <h1>
+                        <div id="yazi"> 1.000.000</div> 
+                        <div style="color:white">KİŞİ BURAYI <br>KULLANIYOR</div>
+                    </h1>
+                    
+                </div>
+                <div class="currencyBox">
+                        <div  class="currencyBoxrow"><div class="photo"><img src="dolar.png" id="dolarIcon" width="75"></img></div><div class="currency">Dolar</div><div class="price" id="usdTry"></div></div>
+                        <div  class="currencyBoxrow"><div class="photo"><img src="euro.png" id="euroIcon" width="75"></div><div class="currency">Euro</div><div class="price"  id="eurTry">1</div></div>
+                        <div  class="currencyBoxrow"><div class="photo"><img src="sterlin.png" id="sterlingIcon" width="75"></div><div class="currency">Sterlin</div><div class="price" id="gbpTry">1</div></div>
+                        <div  class="currencyBoxrow"><div class="photo"><img src="yen.jpg" id="yenIcon" width="75"></div><div class="currency">Yen</div><div class="price" id="jpyTry">1</div></div>
+                </div>
+            </div>
+            <div class="middlein">
+                <div class="flexrow" style="position: relative;">
+                    <div  class="flexrowdiv">
+                        <h1 style="color: orange;">ÖNEMLİ HABER</h1>
+                        <i class="fa-solid fa-arrow-down animated-arrow"></i>
+                    </div>
+                    <p class="pcenter">
+                        Dün Fed'in faizleri artırma kararı, döviz piyasalarında dalgalanmaya neden oldu. Açıklamalarına göre, 
+                        enflasyon endişelerini hafifletmek için bu adımı atan Fed, yatırımcıların dikkatini çekti. 
+                        Özellikle dolar üzerindeki etkisi yakından izlenen bu karar, küresel ekonomiye olan güveni şekillendirecek gibi görünüyor.
+                    </p>
+                  
+                    
+                </div>
+                
+                <div class="fotodiv">
+                    <img class="foto1" src="fed.jpg" alt="Fed Image" width="500" onclick="openFedLightbox(); changeFedImage(this.src)">
+                </div>
+            </div>
+            <div class="middlein2">
+                
+                    <marquee><img src="tr.png"></img> <img src="us.png"></img><img src="uk.png"></img> <img src="jp.png"></img></marquee>
+            </div>
+            <div id="fedLightbox" onclick="closeFedLightbox()" style="display:none;">
+                <img id="fedLightbox-img">
+            </div>
+            <footer>
+                <div><a class="logo2">DOLORIS</a></div>    
+                <div class="links">
+                    <div>
+                        <a href="hakkında.html">Hakkında</a><a href="form.html">İletişim</a> 
+                    </div>
+                </div>
+                <div class="copyright"><a>DOLARIS© 2024</a></div>
+            </footer>
+            
+        </div>
+
+
+
+
+
+        <div id="main-content">
+            <div id="lightbox-dollar" class="lightbox-style hidden">
+                <div class="lightbox-content">
+                    <span id="close-dollar" class="close-button"><i class="fas fa-times"></i></span>
+                    <img src="dolar.png" id="dolarIcon" width="1000">
+                </div>
+            </div>
+            <div id="lightbox-euro" class="lightbox-style hidden">
+                <div class="lightbox-content">
+                    <span id="close-euro" class="close-button"><i class="fas fa-times"></i></span>
+                    <img src="euro.png" id="euroIcon" width="1000">
+                </div>
+            </div>
+            <div id="lightbox-sterling" class="lightbox-style hidden">
+                <div class="lightbox-content">
+                    <span id="close-sterling" class="close-button"><i class="fas fa-times"></i></span>
+                    <img src="sterlin.png" id="sterlingIcon" width="1000">
+                </div>
+            </div>
+            <div id="lightbox-yen" class="lightbox-style hidden">
+                <div class="lightbox-content">
+                    <span id="close-yen" class="close-button"><i class="fas fa-times"></i></span>
+                    <img src="yen.jpg" id="yenIcon" width="1000">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+var xhr = new XMLHttpRequest();
+var url = "veri.txt"; 
+xhr.open("GET", url, true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);  
+        if(response.success) {
+            var usdRate = (1 / response.rates.USD).toFixed(4);
+            var eurRate = (1 / response.rates.EUR).toFixed(4);
+            var gbpRate = (1 / response.rates.GBP).toFixed(4);
+            var jpyRate = (1 / response.rates.JPY).toFixed(4);
+
+            document.getElementById("usdTry").innerHTML = "USD/TRY: " + usdRate;
+            document.getElementById("eurTry").innerHTML = "EUR/TRY: " + eurRate;
+            document.getElementById("gbpTry").innerHTML = "GBP/TRY: " + gbpRate;
+            document.getElementById("jpyTry").innerHTML = "JPY/TRY: " + jpyRate;
+        } else {
+            console.error('Hata');
+        }
+    }
+};
+
+xhr.send();
+</script>
+
+<script>
+    KayanYazi=function(nesne,zaman){
+        let yaziNesne=nesne;
+        let genisli=yaziNesne.offsetWidth;
+
+        setInterval(function(){
+            let yazi  = yaziNesne.innerHTML;
+            let harf  = yazi.substring(0,1);
+            let kalan = yazi.substring(1,yazi.length);
+            kalan=kalan+harf
+            yaziNesne.innerHTML=kalan;
+        }, zaman);
+    }
+    var nesne=document.getElementById("yazi"); 
+    KayanYazi(nesne,200);  
+</script>
+</html>
